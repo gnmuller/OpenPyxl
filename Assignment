@@ -1,0 +1,233 @@
+wb = Workbook()
+ws = wb.active
+ws.title = 'Open_pyxl'
+
+#Header
+a1font = Font(name = 'Agency FB', size =12)
+a1fontTwo = Font(name = 'Calibri', size = 11)
+a1 = ws.cell(row = 1, column = 1)
+#Concat for different formats?
+a1.value = "New Assay: Date 01/28/2022 @ 3:00pm"
+a2= ws.cell(row = 2, column = 1)
+a2.value = "Table 2:"
+b2 = ws.cell(row = 2, column = 2)
+b2.value = "Details of specfic Analysis *"
+ws.merge_cells('B2:I2')
+b2.alignment = Alignment(horizontal='center')
+
+#Heights
+for i in range(5,10):
+  ws.row_dimensions[i].height = 27
+width_list = ['C','D','E','F','G','H', 'J','K']
+for i in width_list:
+  ws.column_dimensions[i].width = 10
+#Table 1
+#Columns
+for i in range(3,9):
+  value = ws.cell(row= 4, column = i)
+  value.value = "Column " + str(i-2)
+  value.font = Font(bold = True)
+
+
+#Rows
+for i in range(5,11):
+  value = ws.cell(row = i, column = 2)
+  if i == 5:
+    value.value = "A"
+    value.font = Font(bold = True, name = 'Times New Roman')
+  if i == 6: 
+    value.value = "B"
+    value.font = Font(bold = True, name = 'Times New Roman')
+  if i == 7:
+    value.value = "AA"
+    value.font = Font(bold = True, name = 'Times New Roman')
+  if i == 8:
+    value.value == "Cat" 
+    value.font = Font(bold = True, name = 'Times New Roman') 
+  if i == 9:
+    value.value == "AAA"
+    value.font = Font(bold = True, name = 'Times New Roman')
+  if i == 10:
+    value.value == "BBB"
+    value.font = Font(bold = True, name = 'Times New Roman')  
+
+#LoopNotWorkingWritten Long
+b8 = ws.cell(row = 8, column = 2)
+b8.value = "BB"
+b9 = ws.cell(row = 9, column = 2)
+b9.value = "AAA"
+b10 = ws.cell(row = 10, column = 2)
+b10.value = "BBB"
+#Sample
+for i in range(5,11):
+  for j in range(3,8):
+    value = ws.cell(row= i , column = j)
+    value.value = "Sample 0" + str(j - 2)
+    if j == 3 or j == 4:
+      value.font = Font(bold = True, color = "00FF0000", name = 'Times New Roman')
+      value.fill = PatternFill("solid", start_color = "00C0C0C0" )
+    if j == 5:
+      value.font = Font(name = 'Times New Roman')
+      value.fill = PatternFill("solid", start_color = "00CCCCFF")
+    if j == 6:
+      value.font = Font(name = 'Times New Roman')
+      value.fill = PatternFill("solid", start_color = "00339966") 
+    if j == 7:
+      value.font = Font(name = 'Times New Roman')
+      value.fill = PatternFill("solid", start_color = "00FFFF99")
+                                    
+for i in range(6):
+  value.font = Font(name = 'Times New Roman')
+  value = ws.cell(row = 5+i, column = 8)  
+  value.value = "NA"
+  value.fill = PatternFill("solid", start_color = "00FF8080")
+
+#Calculations
+for i in range(2):
+  value = ws.cell(row= 5, column = 9 +i)
+  value.value = 4 + i
+  value.number_format = '0'
+
+for i in range(2):
+  value = ws.cell(row= 6, column = 9 +i) 
+  value.value = 24 + i
+  value.number_format = '0.00'
+
+for i in range(2):
+  value = ws.cell(row= 7, column = 9 +i) 
+  value.value = 16 + i
+  value.number_format = '0.00E+00'  
+
+for i in range(2):
+  value = ws.cell(row= 8, column = 9 +i) 
+  value.value = 44 + i
+  value.number_format = '0'  
+  value.alignment = Alignment(horizontal='center')
+
+for i in range(2):
+  value = ws.cell(row= 9, column = 9 +i) 
+  value.value = 31 + i
+  value.number_format = 'dd/mm/yy'   
+
+for i in range(2):
+  value = ws.cell(row= 10, column = 9 +i) 
+  value.value = 99 + i
+  value.number_format = '$#,##0_-'  
+
+
+a12 =  ws.cell(row= 12, column = 1)
+a12.value = "*Analysis not real, just for testing purposes." 
+ws.merge_cells('A12:I12')
+
+#----------------------------------------------------------------------------
+#Second Table
+
+#Header
+a14font = Font(name = 'Agency FB', size =12)
+a14fontTwo = Font(name = 'Calibri', size = 11)
+a14 = ws.cell(row = 14, column = 1)
+#Concat for different formats?
+a14.value = "New Assay: Date 01/31/2022 @ 8:00am"
+a15= ws.cell(row = 15, column = 1)
+a15.value = "Table 6:"
+b15 = ws.cell(row = 15, column = 2)
+b15.value = "Details of specfic Analysis *"
+ws.merge_cells('B15:I15')
+b15.alignment = Alignment(horizontal='center')
+
+#Table 1
+#Columns
+for i in range(3,9):
+  value = ws.cell(row= 17, column = i)
+  value.value = "Column " + str(i-2)
+  value.font = Font(bold = True, name = "Times New Roman")
+
+
+#Rows
+for i in range(18,23):
+  value = ws.cell(row = i, column = 2)
+  if i == 18:
+    value.value = "A"
+    value.font = Font(bold = True, name = "Times New Roman")
+  if i == 19: 
+    value.value = "B"
+    value.font = Font(bold = True, name = "Times New Roman")
+  if i == 20:
+    value.value = "AA"
+    value.font = Font(bold = True, name = "Times New Roman")
+  if i == 21:
+    value.value == "Cat" 
+    value.font = Font(bold = True, name = "Times New Roman") 
+  if i == 22:
+    value.value == "AAA"
+    value.font = Font(bold = True, name = "Times New Roman")
+  if i == 23:
+    value.value == "BBB"
+    value.font = Font(bold = True, name = "Times New Roman")  
+#LoopNotWorkingWritten Long
+b21 = ws.cell(row = 21, column = 2)
+b21.value = "BB"
+b22 = ws.cell(row = 22, column = 2)
+b22.value = "AAA"
+b23 = ws.cell(row = 23, column = 2)
+b23.value = "BBB"
+b23.font = Font(bold= True)
+#Sample
+for i in range(18,24):
+  for j in range(3,8):
+    value = ws.cell(row= i , column = j)
+    value.value = "Sample 0" + str(j - 2)
+    if j == 3 or j == 4:
+      value.font = Font(bold = True, color = "00FF0000", name = "Times New Roman")
+      value.fill = PatternFill("solid", start_color = "00C0C0C0" )
+    if j == 5:
+      value.font = Font(bold = True, name = "Times New Roman")
+      value.fill = PatternFill("solid", start_color = "00CCCCFF")
+    if j == 6:
+       value.fill = PatternFill("solid", start_color = "00339966") 
+    if j == 7:
+      value.font = Font(bold = True, name = "Times New Roman")
+      value.fill = PatternFill("solid", start_color = "00FFFF99")                       
+for i in range(6):
+  value.font = Font(name = "Times New Roman")
+  value = ws.cell(row = 18+i, column = 8)  
+  value.value = "NA"
+  value.fill = PatternFill("solid", start_color = "00FF8080")
+
+#Calculations
+for i in range(2):
+  value = ws.cell(row= 18, column = 9 +i)
+  value.value = 3 - i*.5
+  value.number_format = '0'
+
+for i in range(2):
+  value = ws.cell(row= 19, column = 9 +i) 
+  value.value = 24 - i*12
+  value.number_format = '0.00'
+
+for i in range(2):
+  value = ws.cell(row= 20, column = 9 +i) 
+  value.value = 16 / (i+1)*8
+  value.number_format = '0.00E+00'  
+
+for i in range(2):
+  value = ws.cell(row= 21, column = 9 +i) 
+  value.value = 44 - i*11
+  value.number_format = '0'  
+  value.alignment = Alignment(horizontal='center')
+
+for i in range(2):
+  value = ws.cell(row= 22, column = 9 +i) 
+  value.value = 31 + i
+  value.number_format = 'dd/mm/yy'   
+
+for i in range(2):
+  value = ws.cell(row= 23, column = 9 +i) 
+  value.value = 99 - i*50
+  value.number_format = '$#,##0_-'
+
+
+a25 =  ws.cell(row= 25, column = 1)
+a25.value = "*Analysis not real, just for testing purposes." 
+ws.merge_cells('A25:I25')
+a25.alignment = Alignment(horizontal='center')
